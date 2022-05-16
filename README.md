@@ -18,6 +18,7 @@ This second project, roger-skyline-1 let you install a Virtual Machine, and disc
 - [Monitor crontab changes](#monitor-crontab-changes)
 - [Web Part](#web-part)
 - [Creating a self-signed SSL](#creating-a-self-signed-ssl)
+- [Testing DoS with slowloris attack to Apache server](#testing-dos-with-slowloris-attack-to-apache-server)
 - [Deployment script](#deployment-script)
 
 ## Installing Virtual Machine
@@ -289,7 +290,10 @@ ignoreregex =
 
 After changing the setting run restart: `sudo systemctl restart fail2ban`
 
-If you want to unban yourself you can try: `sudo fail2ban-client set https-get-dos 10.12.254.101`
+To really test this you need to have Apache 2 server set up. More about testing can be found later on
+[Testing DoS with slowloris attack to Apache server](#testing-dos-with-slowloris-attack-to-apache-server)
+
+If you want to unban yourself you can try: `sudo fail2ban-client set https-get-dos 10.12.1.4`
 
 ## Protecting against port scans
 
@@ -767,7 +771,7 @@ Check your syntax error with `sudo apache2ctl configtest` and if everything work
 
 Now you have configured your Apache server to use strong encryption for client connections. This will allow you to serve requests securely and will prevent outside parties from reading your traffic
 
-**Testing DoS with slowloris attack to my Apache server**
+## Testing DoS with slowloris attack to Apache server
 
 Now when you have a Web Server running is a good time to try to attack it simple python script [slowloris](https://github.com/gkbrk/slowloris) that you can find on the internet.
 
