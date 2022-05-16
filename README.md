@@ -17,8 +17,8 @@ This second project, roger-skyline-1 let you install a Virtual Machine, and disc
 - [A script that updates all the packages](#a-script-that-updates-all-the-packages)
 - [Monitor crontab changes](#monitor-crontab-changes)
 - [Web Part](#web-part)
-- [Deployment script](#deployment-script)
 - [Creating a self-signed SSL](#creating-a-self-signed-ssl)
+- [Deployment script](#deployment-script)
 
 ## Installing Virtual Machine
 
@@ -545,7 +545,7 @@ You can press **enter** to read that message:
     
     <img width="599" alt="Untitled 7" src="https://user-images.githubusercontent.com/52178013/168658133-4fd991af-9ba0-425c-8236-74b096d061e1.png">
     
-    # Creating a self-signed SSL
+    ## Creating a self-signed SSL
     
     I did use this tutorial to get hang of it: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10)
     
