@@ -7,7 +7,6 @@ DEPLOY_DIR='/usr/scripts/deployment'
 
 DIFF=`diff -q $DEPLOY_DIR $WEB_DIR`
 
-
 if [ ! -z "$DIFF" ]; then
 	OUTPUT=$(sudo cp -v $DEPLOY_DIR/* $WEB_DIR)
 	echo "New version deployed. $(date)
