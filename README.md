@@ -666,8 +666,8 @@ After making changes it should look more like this: **(bold text is what is modi
 ```bash
 <IfModule mod_ssl.c>
 	<VirtualHost _default_:443>
-		ServerAdmin **emende@student.hive.fi**
-		**ServerName 10.12.254.101**
+		ServerAdmin emende@student.hive.fi
+		ServerName 10.12.254.101
 
 		DocumentRoot /var/www/html
 
@@ -682,8 +682,8 @@ After making changes it should look more like this: **(bold text is what is modi
 
 		...
 
-		SSLCertificateFile	/etc/ssl/certs/**apache-selfsigned.crt**
-		SSLCertificateKeyFile /etc/ssl/private/**apache-selfsigned.key**
+		SSLCertificateFile	/etc/ssl/certs/**apache-selfsigned.crt
+		SSLCertificateKeyFile   /etc/ssl/private/**apache-selfsigned.key
 
 		...
 
@@ -815,9 +815,9 @@ Status for the jail: http-get-dos
 |  |- Total failed:	1835
 |  `- File list:	/var/log/apache2/access.log
 `- Actions
-   |- **Currently banned:	1**
+   |- Currently banned:	1
    |- Total banned:	5
-   `- **Banned IP list:	10.12.1.4**
+   `- Banned IP list:	10.12.1.4
 ```
 
 - In log file `/var/log/apache2/access.log` you can see all HTTP requests that have come through.
