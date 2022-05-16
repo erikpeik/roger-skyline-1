@@ -4,6 +4,22 @@ This subject aims to initiate you to the basics of system and network administra
 
 This second project, roger-skyline-1 let you install a Virtual Machine, and discover the basics of system and network administration as well as a lot of services used on a server machine.
 
+- [Installing Virtual Machine](https://github.com/erikpeik/roger-skyline-1#installing-virtual-machine)
+- [Added rights to sudo](https://github.com/erikpeik/roger-skyline-1#added-rights-to-sudo)
+- [Configuring static IP and a Netmask in \30](https://github.com/erikpeik/roger-skyline-1#configuring-static-ip-and-a-netmask-in-30)
+- [How to change the SSH port](https://github.com/erikpeik/roger-skyline-1#how-to-change-the-ssh-port)
+- [Adding banner art when logging in](https://github.com/erikpeik/roger-skyline-1#adding-banner-art-when-logging-in)
+- [SSH access with public keys](https://github.com/erikpeik/roger-skyline-1#ssh-access-with-public-keys)
+- [Setup a Firewall](https://github.com/erikpeik/roger-skyline-1#setup-a-firewall)
+- [Set a DoS protection](https://github.com/erikpeik/roger-skyline-1#set-a-dos-protection)
+- [Protecting against port scans](https://github.com/erikpeik/roger-skyline-1#protecting-against-port-scans)
+- [Disable unnecessary services](https://github.com/erikpeik/roger-skyline-1#disable-unnecessary-services)
+- [A script that updates all the packages](https://github.com/erikpeik/roger-skyline-1#a-script-that-updates-all-the-packages)
+- [Monitor crontab changes](https://github.com/erikpeik/roger-skyline-1#monitor-crontab-changes)
+- [Web Part](https://github.com/erikpeik/roger-skyline-1#web-part)
+- [Deployment script](https://github.com/erikpeik/roger-skyline-1#deployment-script)
+- [Creating a self-signed SSL](#creating-a-self-signed-ssl)
+
 ## Installing Virtual Machine
 
 I used Debian like we did use in the last project [init](https://github.com/erikpeik/init).
@@ -529,7 +545,7 @@ You can press **enter** to read that message:
     
     <img width="599" alt="Untitled 7" src="https://user-images.githubusercontent.com/52178013/168658133-4fd991af-9ba0-425c-8236-74b096d061e1.png">
     
-    **Creating a self-signed SSL**
+    # Creating a self-signed SSL
     
     I did use this tutorial to get hang of it: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10)
     
