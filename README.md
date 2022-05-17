@@ -350,9 +350,10 @@ After changing those settings you can restart PortSentry with the following comm
 
 I used `nmap` to try port scanning unused ports. You might have to install a second Virtual Machine. In Linux installation works like `sudo apt install nmap` or if you use Mac run `brew install nmap`
 
-I did run nmap with the following command: `sudo nmap -PN -sS 10.12.254.101`, but you can try it also without flags if you don’t have sudo rights.
+I did run nmap with the following command: `sudo nmap -PN -sS 10.12.254.101`, but you can try it also without flags if you don't have sudo rights.
 
 ```bash
+> sudo tail -f /var/log/syslog
 May 16 20:51:09 debian-emende portsentry[1870]: attackalert: TCP SYN/Normal scan from host: 10.12.1.4/10.12.1.4 to TCP port: 515
 May 16 20:51:09 debian-emende portsentry[1870]: attackalert: Host 10.12.1.4 has been blocked via wrappers with string: "ALL: 10.12.1.4 : DENY"
 May 16 20:51:09 debian-emende portsentry[1870]: attackalert: Host 10.12.1.4 has been blocked via dropped route using command: "/sbin/iptables -I INPUT -s 10.12.1.4 -j DROP"
