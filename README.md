@@ -30,7 +30,7 @@ To create a 4.2 GB partition you have to calculate it with some kind of Gigabyte
 Personally used this: [https://convertlive.com/u/convert/gigabytes/to/bytes#4.2](https://convertlive.com/u/convert/gigabytes/to/bytes#4.2)
 
 > ****4.2 Gigabytes = 4509715660.8 Bytes****
-> 
+>
 
 To check disk size you can use the command: `sudo fdisk -l`
 
@@ -121,7 +121,7 @@ To restart networking you can run `sudo systemctl restart networking`
 
 </aside>
 
-Make sure the service is restarted without any errors. 
+Make sure the service is restarted without any errors.
 
 You can run `sudo systemctl status networking` to check out if it still active.
 
@@ -170,7 +170,7 @@ How this is done is just changing the Message of the day (usually called motd)
 
 Used this site to get those cool ASCII arts: [http://patorjk.com/software/taag/](http://patorjk.com/software/taag/)
 
-Edit file `/etc/motd` to look like whatever you want. 
+Edit file `/etc/motd` to look like whatever you want.
 
 You can type there pretty much anything.  This is what I had in the file:
 
@@ -226,7 +226,7 @@ Getting started I read this tutorial about **UWF**:
 
 To check if **UFW** is enabled you can run: `sudo ufw status`
 
-if you got a `Status: inactive`, it means your firewall is not enabled. 
+if you got a `Status: inactive`, it means your firewall is not enabled.
 
 To enable **UFW** you can run: `sudo ufw enable`
 
@@ -241,14 +241,14 @@ Setup the following firewall rules:
 What is DoS? (Denial Of Service Attack)
 
 > A **Denial-of-Service (DoS) attack** is an attack meant to shut down a machine or network, making it inaccessible to its intended users. DoS attacks accomplish this by flooding the target with traffic or sending it information that triggers a crash. In both instances, the DoS attack deprives legitimate users (i.e. employees, members, or account holders) of the service or resource they expected.
-> 
+>
 
 Source: [https://www.paloaltonetworks.com/cyberpedia/what-is-a-denial-of-service-attack-dos](https://www.paloaltonetworks.com/cyberpedia/what-is-a-denial-of-service-attack-dos)
 
 Proceed with the **Fail2Ban** installation: `sudo apt install fail2ban`
 
 > **Fail2ban** is an intrusion prevention software framework that protects computer servers from brute-force attacks.
-> 
+>
 
 Source: [https://en.wikipedia.org/wiki/Fail2ban](https://en.wikipedia.org/wiki/Fail2ban)
 
@@ -366,7 +366,7 @@ You can check also if your IP address is banned via iptables:
 ```bash
 > sudo iptables -L -n -v | head
 Chain INPUT (policy ACCEPT 28 packets, 1792 bytes)
- pkts bytes target     prot opt in     out     source               destination         
+ pkts bytes target     prot opt in     out     source               destination
  8124  494K DROP       all  --  *      *       10.12.1.4            0.0.0.0/0
 ```
 
@@ -377,13 +377,13 @@ To finally get ourselves unbanned, we have to delete the IP at the end of`/etc/h
 ## Disable unnecessary services
 
 ```bash
-sudo systemctl disable console-setup.service 
+sudo systemctl disable console-setup.service
 sudo systemctl disable keyboard-setup.service
 sudo systemctl disable apt-daily.timer
 sudo systemctl disable apt-daily-upgrade.timer
 ```
 
-`systemctl list-unit-files --state=enabled` to check all enabled services
+`systemctl list-unit-files --state=enabled --type=service` to check all enabled services
 
 ## A script that updates all the packages
 
@@ -449,15 +449,15 @@ Send mails will appear in `/var/mail` folder. There are specified files for each
 **How to setup postfix:**
 
 > Postfix is a free and open-source mail transfer agent (MTA) that routes and delivers electronic mail. [https://en.wikipedia.org/wiki/Postfix_(software)](https://en.wikipedia.org/wiki/Postfix_(software))
-> 
+>
 1. Install Postfix
-    
+
     You can install postfix with the command: `sudo apt install postfix`
-    
+
 2. Changing the Postfix Configuration
-    
+
     Postfix’s configuration settings are defined in the `/etc/postfix/main.cf` file. Rather than editing this file directly, you can use Postfix’s `postconf` command to query or set configuration settings.
-    
+
     - Change the home mailbox directory: `sudo postconf -e "home_mailbox = mail/"`
     - Edit `/etc/aliases` root to be exactly `root: root`
         - `sudo newaliases` will initialize and refresh the alias database.
@@ -466,9 +466,9 @@ Send mails will appear in `/var/mail` folder. There are specified files for each
 **Mutt – A Command Line Email Client to Send Mails from Terminal**
 
 1. Install Mutt
-    
+
     You can install mutt with command: `sudo apt install mutt`
-    
+
 2. Create config file `/root/.muttrc` to be:
 
 ```bash
@@ -481,11 +481,11 @@ set postponed="+.Drafts"
 set spoolfile="/root/mail"
 ```
 
-You can now test if you can send and receive mails by sending: 
+You can now test if you can send and receive mails by sending:
 
 `echo "Text" | sudo mail -s "Subject" root`
 
-Type `mutt` to open your mailbox. Enter **q** to exit. 
+Type `mutt` to open your mailbox. Enter **q** to exit.
 
 When opening `mutt` it should look something like this:
 
@@ -500,15 +500,15 @@ You can press **enter** to read that message:
 [Apache](https://httpd.apache.org/) was my choice of service.
 
 1. Installing Apache
-    
+
     `sudo apt update && sudo apt install apache2`
-    
+
 2. Checking your webserver status
-    
+
     `sudo systemctl status apache2`
-    
+
     It should look like this:
-    
+
     ```bash
     ● apache2.service - The Apache HTTP Server
          Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
@@ -522,44 +522,44 @@ You can press **enter** to read that message:
                  ├─4493 /usr/sbin/apache2 -k start
                  ├─4494 /usr/sbin/apache2 -k start
                  └─4496 /usr/sbin/apache2 -k start
-    
+
     May 13 09:52:46 debian-emende systemd[1]: Starting The Apache HTTP Server...
     May 13 09:52:46 debian-emende apachectl[4492]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the >
     May 13 09:52:46 debian-emende systemd[1]: Started The Apache HTTP Server.
     ```
-    
+
     Change from `/etc/apache2/ports.conf` following lines:
-    
+
     ```bash
     Listen **10.12.254.101:80**
-    
+
     <IfModule ssl_module>
     	Listen **10.12.254.101:443**
     </IfModule>
-    
+
     <IfModule mod_gnutls.c>
     	Listen **10.12.254.101:443**
     </IfModule>
     ```
-    
+
     This will prevent you from Listening to it from [https://localhost](https://localhost). Only [https://10.12.254.101](https://10.12.254.101) will work. You can check this by temporarily installing curl `sudo apt install curl` and trying `curl -k https://localhost`. It should say **Connection refused**.
-    
-    You can also check if the website is up in a browser. You can find it at [http://10.12.245.101](http://10.12.254.101/) where the address is your IP (same as when connecting to SSH) 
-    
+
+    You can also check if the website is up in a browser. You can find it at [http://10.12.245.101](http://10.12.254.101/) where the address is your IP (same as when connecting to SSH)
+
     You can pretty much start doing your website in `/var/www/html`. Just replace index.html with your own one and you are done. For example, this is what my website looks like (source code in GitHub):
-    
+
     <img width="599" alt="Untitled 7" src="https://user-images.githubusercontent.com/52178013/168658133-4fd991af-9ba0-425c-8236-74b096d061e1.png">
-    
+
     ## Creating a self-signed SSL
-    
+
     I did use this tutorial to get hang of it: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10)
-    
+
     The following part is mostly copied from there, you can find the same information also there.
-    
+
     **You can create a self-signed key and certificate pair with OpenSSL in a single command:**
-    
+
     `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt`
-    
+
     - **openssl:** Basic command-line tool for creating and managing OpenSSL certificates, keys and other files.
     - **req:** This subcommand specifies that we want to use X.509 certificate signing request (CSR) management. The `X.509` is a public key infrastructure standard that SSL and TSL adhere to for their key and certificate management.
     - **-x509:** This further modifies the previous subcommand by telling the utility that we want to make a self-signed certificate instead of generating a certificate signing request.
@@ -777,11 +777,11 @@ Now you have configured your Apache server to use strong encryption for client c
 Now when you have a Web Server running is a good time to try to attack it simple python script [slowloris](https://github.com/gkbrk/slowloris) that you can find on the internet.
 
 > Slowloris is basically an HTTP Denial of Service attack that affects threaded servers. [https://github.com/gkbrk/slowloris](https://github.com/gkbrk/slowloris)
-> 
+>
 
 Basically, it sends lots of HTTP request frequently that exhausts the servers thread pool and the server can't reply to other people
 
-You can install slowloris on any machine that has python & pip installed. 
+You can install slowloris on any machine that has python & pip installed.
 
 Steps on how to send an attack to your own Web Server:
 
@@ -831,7 +831,7 @@ You can unban with the command `sudo fail2ban-client set http-get-dos unbanip 10
 
 ## Deployment script
 
-This part idea was to propose a functional solution for deployment automation. Deployment in software and web development means pushing changes or updates from one deployment environment to another. In this case from the local directory to the server. 
+This part idea was to propose a functional solution for deployment automation. Deployment in software and web development means pushing changes or updates from one deployment environment to another. In this case from the local directory to the server.
 
 There are multiple ways to do this but I just used a basic shell script:
 
